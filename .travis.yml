@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: jvytVA4jaAxQdSSHnnDrpjr2QCNlkE8S5NJe6ijZ9jQW+FxilIazzudGDAr1L7C2qIVnV3wFVHlejc6OZsw7oXsjUj/HejyDWzXy2WFYXe4drHolDlmsIWcYkQRVOMjf8+/T0EtRr2aOupz7ziUOhvdHQKjG2rdpOwxEYa6I0LN7KC/cRY+rcQ72SQ5661u14BDdw8jiE/PTZTypx27xN5QFWtBXUvg8MnqMKgLkYYXOYTBCHwwfMH5cfAMSeqxwtnyALch2n12ZssQdA7crztslqRjUtMIRSSR+l9933vHYZTyUP7xSwrGTx+v5avDC+8Wc+YkKKIm1urJquXB6qFwNArRF/zEqOpMi6XbohDpgVNsBaf5s4Rjw2dkQT1PSMomxvAU56mUNwwtx303PWMvLA+hkdPtViq2+5ax+V2Cz5wfbfME5q6dev0EFtNXaybRu5Gs1DR+3/oUWMMvnSX5gg17Bi+tdYLV1pvOHF2l9Z2q1pw8c/ZYGkGpIX3G6wmW712aYGGmcGnye2uvDlRlL4PN3NDuCFK3GuFV04SK2BONiPaLhQcmqen5jsnzBX7PCfCvVGldC+PCs6uVirZb5TEbVDCV3FkYllLHFm8xOZyn7bsfJm+8mh2/zgnOzCUKkMzmtq5qZyQsqqTOaKKJdSNkXeWd1RnbRoC6bvz8=
+  app: infinite-tundra-58517
+  on:
+    repo: camillecondrey/node-capstone
