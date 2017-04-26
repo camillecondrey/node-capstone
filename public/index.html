@@ -2,9 +2,37 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<p>hello world</p>
+	<nav>
+		<div class="log-in">
+			<form class="log-in-form" action="/me" method="post">
+				<input class="login" type="email" placeholder="email address" name="email" id="email" required/>
+				<input class="login" type="password" placeholder="password" name="password" id="password" required/>
+				<button type="submit" class="login">Log In</button>
+			</form>	
+		</div>	
+	</nav>
+	<h2>app description</h2>
+	
+	<div class="sign-up">
+		<form class="sign-up-form" action="/users" method="post">
 
+			<legend>Create Account</legend>
+
+			<label for="username">Email</label>
+			<input type="email" name="username" id="username" required/>
+
+			<label for="password">Password</label>
+			<input type="password" name="password" id="sign-up-password" required/>
+
+			<button type="submit" action="">
+				Submit</button>
+
+		</form>
+	</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	
+<script type="text/javascript" src="app-home.js"></script>
 </body>
 </html>

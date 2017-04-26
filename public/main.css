@@ -1,0 +1,45 @@
+* {
+	box-sizing: border-box;
+}
+
+
+body {
+	background-color;
+	text-align: center;
+
+}
+
+nav {
+	height: 70px;
+	display: block;
+	min-width: 1000px;
+	border: 1px solid black;
+}
+
+.log-in {
+	float: right;
+	display: inline-block;
+}
+
+.login {
+	height: 40px;
+	margin:0 auto;
+}
+
+.get-started {
+
+}
+
+.sign-up {
+	margin: auto;
+	width: 320px;
+	
+	padding: 40px;
+	border: 1px solid black;
+}
+
+/*#hidden {
+	display: none;
+}*/
+
+
