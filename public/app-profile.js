@@ -28,6 +28,20 @@ var MOCK_LIST_UPDATES = {
 	]
 	}
 
+function addList(list) {
+  console.log('Adding new list');
+  $.ajax({
+    method: 'POST',
+    url: '/list',
+    data: JSON.stringify(recipe),
+    success: function(data) {
+      getAndDisplayRecipes();
+    },
+    dataType: 'json',
+    contentType: 'application/json'
+  });
+}	
+
 
 function getRecentListUpdates(callbackFn) {
     setTimeout(function(){ callbackFn(MOCK_LIST_UPDATES)}, 1);

@@ -9,13 +9,14 @@ const productSchema = mongoose.Schema({
 	description: {type: String},
 	url: {type: String},
 	price: {type: Number}, 
+	
 	// image: {type: `${}`}
 });
 
-const listSchema = mongoose.Schema({
+const ListSchema = mongoose.Schema({
 	name: {type: String, required: true},
-	description: {type: String}
-
+	description: {type: String},
+  id: {type: String}
 });
 
 const UserSchema = mongoose.Schema({
@@ -30,6 +31,7 @@ const UserSchema = mongoose.Schema({
   },
   firstName: {type: String, default: ""},
   lastName: {type: String, default: ""},
+  lists: [ListSchema],
   // lists: {
   // 	products: [productSchema]
   // }
@@ -57,90 +59,14 @@ UserSchema.statics.hashPassword = function(password) {
 }
 
 const User = mongoose.model('User', UserSchema);
+const List = mongoose.model('List', ListSchema);
+const listItems = mongoose.model('listItems', productSchema)
 
-module.exports = {User};
+module.exports = {User, List, listItems};
+
 
 
 function StorageException(message) {
    this.message = message;
    this.name = "StorageException";
 }
-
-
-// const List = {
-//   create: function(name, description) {
-//     console.log('Creating new list');
-//     const list = {
-//       name: name,
-//       id: uuid.v4(),
-//       description: description
-//     };
-//     this.lists.push(list);
-//     return list;
-//   },
-//   get: function() {
-//     console.log('Retrieving list');
-//     return Object.keys(this.lists).map(key => this.lists[key]);
-//   },
-//   delete: function(id) {
-//     console.log(`Deleting list \`${id}\``);
-//     delete this.lists[id];
-//   },
-//   update: function(updatedList) {
-//     console.log(`Deleting list \`${updatedList.id}\``);
-//     const {id} = updatedList;
-//     if (!(id in this.lists)) {
-//       throw StorageException(
-//         `Can't update list \`${id}\` because doesn't exist.`)
-//     }
-//     this.lists[updatedList.id] = updatedList;
-//     return updatedList;
-//   }
-// };
-
-// const ListItem = {
-// 	create: function(name) {
-// 		console.log('Creating new item');
-// 		const item = {
-// 			name: name,
-// 			id: uuid.v4(),
-// 			description: description,
-// 			url: url,
-// 			price: price
-// 		};
-// 		this.items[item.id] = item;
-// 		return item;
-// 	},
-// 	get: function() {
-// 		console.log("Retrieving item");
-// 		return Object.keys(this.items).map(key => this.items[key]);
-// 	},
-// 	delete: function(id) {
-// 		console.log(`Deleting item \`${id}\``);
-// 		delete this.items[id];
-// 	},
-// 	update: function(updatedItem) {
-// 		const {id} = updatedItem;
-// 		if (!(id in this.items)) {
-// 			throw StorageException(
-// 				`Can't update item \`${id}\` because item doesn't exist.`)
-// 		}
-// 		this.items[updatedItem.id] = updatedItem;
-// 		return updatedItem;
-// 	}
-// };
-
-// function createListModel() {
-// 	const storage = Object.create(List);
-// 	storage.lists = [];
-// 	return storage;
-// }
-
-// function createListItemModel() {
-// 	const storage = Object.create(ListItem);
-// 	storage.listItems = [];
-// 	return storage;
-// }
-
-// module.exports = {List: createListModel()};
-// module.exports = {ListItem: createListItemModel()};

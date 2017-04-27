@@ -2,31 +2,66 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="list.css">
 </head>
 <body>
 
-<div class="list-info">
-	<input type="text" name="list-name" placeholder="List Name" required/>
-	<input type="text" name="description" placeholder="List Description"/>
-	<button class="new-item">add new item</button>
+<form class="list-info">
+	<div class="form-group">
+	  	<label for="example-text-input" class="col-2 col-form-label">Name your List:</label>
+	  	<div class="col-10">
+	    <input class="form-control" type="text" value="" placeholder="required" id="list-name" required/>
+	  </div>
+	</div>
+	<div class="form-group">
+	  	<label for="example-text-input" class="col-2 col-form-label">Add List Description:</label>
+	  	<div class="col-10">
+	    <input class="form-control" type="text" value="" placeholder="optional" id="description-name"/>
+	  </div>
+	</div>
+
+<div class="edit-buttons">	
+	<button class="new-item">Add New Item</button>
+	<button type="submit">Done</button>
 </div>	
-	
-
-
-<div class="add-list-items">
-		
-		<input type="text" name="item-name" class="item-name" placeholder="item name" required/>
-		<input type="text" name="description" class="decription" placeholder="item description"></input>
-		<input type="url" name="url" class="url" placeholder="link to product"></input>
-		<input class="price" placeholder="price"></input>
-		<button class="add">add</button>
-</div>
-
+</form>
 
 	
-	<div class="next-item"></div>
-	<a href="profile.html"><button>Done</button></a>
-	<div class="list-items"></div>
+	
+
+<form class="form-box hidden add-item-form">
+	<div class="form-group">
+	  <label for="example-text-input" class="col-2 col-form-label">Item Name</label>
+		  <div class="col-10">
+		    <input class="form-control" type="text" value="" placeholder="required" id="item-name" required/>
+		  </div>
+	</div>
+	<div class="form-group">
+	  <label for="example-search-input" class="col-2 col-form-label">Item Description</label>
+		  <div class="col-10">
+		    <input class="form-control" type="search" value="" placeholder="optional" id="item-description">
+		  </div>
+	</div>
+	<div class="form-group">
+	  <label for="example-email-input" class="col-2 col-form-label">Link to Item</label>
+		  <div class="col-10">
+		    <input class="form-control" type="url" value="" placeholder="optional" id="item-url">
+		  </div>
+	</div>
+	<div class="form-group">
+	  <label for="example-url-input" class="col-2 col-form-label">Price</label>
+		  <div class="col-10">
+		    <input class="form-control" type="text" value="" placeholder="optional" id="item-price">
+		  </div>
+	</div>
+	<button class="edit-buttons add" type="submit">Add</button>
+</form>	
+
+
+	
+<div class="list-items"></div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>	

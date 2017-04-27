@@ -1,29 +1,27 @@
 const express = require('express');
 const app = express();
-app.use(express.static('public'));
-
 const bodyParser = require('body-parser');
-
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const jsonParser = require('body-parser').json();
+
 const {DATABASE_URL, PORT} = require('./config');
-
-
 const {router} = require('./router');
+const {User, List, listItems} = require('./models');
+const {listRouter} = require('./listrouter')
 
-const {List} = require('./models');
-const {ListItem} = require('./models');
-
+app.use(express.static('public'));
 exports.app = app;
 
-
 app.use('/users', router);
-app.use('/me', router);
+app.use('/items', listRouter);
+app.use(bodyParser.json());
 
-app.get('/lists', (req, res) => {
+app.get('/list', (req, res) => {
 	res.json(List.get());
 });
 
-app.post('/lists', (req, res) => {
+app.post('/list', (req, res) => {
 	const requiredFields = ['name'];
 	for  (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
@@ -34,41 +32,41 @@ app.post('/lists', (req, res) => {
 		}
 	}
 
-	const item = List.create(req.body.name);
-	res.status(201).json(item);
+	const list = List.create(req.body.name);
+	res.status(201).json(list);
 })
 
-app.put('/lists/:id', (req, res) => {
-	const requiredFields = ['name', 'id'];
-	for (let i=0; i<requiredFields.length; i++) {
-		const field = requiredFields[i];
-		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
-			console.error(message);
-			return res.status(400).send(message);
-		}
-	}
+// app.put('/list/:id', (req, res) => {
+// 	const requiredFields = ['name', 'id'];
+// 	for (let i=0; i<requiredFields.length; i++) {
+// 		const field = requiredFields[i];
+// 		if (!(field in req.body)) {
+// 			const message = `Missing \`${field}\` in request body`
+// 			console.error(message);
+// 			return res.status(400).send(message);
+// 		}
+// 	}
 
-	if (req.params.id !== req.body.id) {
-		const message = (
-			`Request path id (${req.params.id}) and request body id (${req.body.id}) must match`);
-		console.error(message);
-		return res.status(400).send(message);
-	}
+// 	if (req.params.id !== req.body.id) {
+// 		const message = (
+// 			`Request path id (${req.params.id}) and request body id (${req.body.id}) must match`);
+// 		console.error(message);
+// 		return res.status(400).send(message);
+// 	}
 
-	console.log(`Updating list \`${req.params.id}\``);
-	const updatedItem = List.update({
-		id: req.params.id,
-		name: req.body.name
-	});
-	res.status(204).json(updatedItem);
-});
+// 	console.log(`Updating list \`${req.params.id}\``);
+// 	const updatedItem = List.update({
+// 		id: req.params.id,
+// 		name: req.body.name
+// 	});
+// 	res.status(204).json(updatedItem);
+// });
 
-app.delete('/lists/:id', (req, res) => {
-	List.delete(req.params.id);
-	console.log(`Deleted list \`${res.params.id}\``);
-	res.status(204).end();
-});
+// app.delete('/list/:id', (req, res) => {
+// 	List.delete(req.params.id);
+// 	console.log(`Deleted list \`${res.params.id}\``);
+// 	res.status(204).end();
+// });
 
 
 
