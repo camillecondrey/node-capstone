@@ -1,20 +1,30 @@
 const express = require('express');
 const jsonParser = require('body-parser').json();
 const passport = require('passport');
-const {listItems} = require('./models');
+const {List} = require('./models');
 
 
 const listRouter = express.Router();
 
 // exports.app = app;
-listRouter.use(express.static('public'));
+
 listRouter.use(jsonParser);
 
-listRouter.get('/items', (req, res) => {
-	res.json(List.get());
+listRouter.get('/', (req, res) => {
+	List.find().then(lists => {
+		res.json(lists)
+	});
+	
 });
 
-listRouter.post('/items', (req, res) => {
+listRouter.get('/:id', (req, res) => {
+	List.findById(req.params.id).then(lists => {
+		res.json(lists)
+	});
+	
+});
+
+listRouter.post('/', jsonParser, (req, res) => {
 	const requiredFields = ['name'];
 	for  (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
@@ -25,12 +35,13 @@ listRouter.post('/items', (req, res) => {
 		}
 	}
 
-	const item = listItems.create(req.body.name);
+	const item = List.create(req.body);
 	res.status(201).json(item);
 })
 
-listRouter.put('/items/:id', (req, res) => {
-	const requiredFields = ['name', 'id'];
+listRouter.put('/:id', (req, res) => {
+	console.log(req.body);
+	const requiredFields = ['name', '_id'];
 	for (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
 		if (!(field in req.body)) {
@@ -40,7 +51,7 @@ listRouter.put('/items/:id', (req, res) => {
 		}
 	}
 
-	if (req.params.id !== req.body.id) {
+	if (req.params.id !== req.body._id) {
 		const message = (
 			`Request path id (${req.params.id}) and request body id (${req.body.id}) must match`);
 		console.error(message);
@@ -48,17 +59,27 @@ listRouter.put('/items/:id', (req, res) => {
 	}
 
 	console.log(`Updating items \`${req.params.id}\``);
-	const updatedItem = List.update({
-		id: req.params.id,
-		name: req.body.name
+	
+	List.update({ 
+		_id: req.params.id }, { $set: req.body}, function(data) {
+		console.log(data);
+		res.status(204);
 	});
-	res.status(204).json(updatedItem);
+	
 });
 
-listRouter.delete('/items/:id', (req, res) => {
-	List.delete(req.params.id);
-	console.log(`Deleted list \`${res.params.id}\``);
-	res.status(204).end();
+listRouter.delete('/:id', (req, res) => {
+	List.delete({
+		_id: req.params.id}, {$set: req.body}, function(data){
+			console.log(data);
+			res.status(204);
+		});
+	// console.log('Deleted list');
+	// res.status(204).end();
 });
+
+// listRouter.delete('/:id', (req, res) => {
+// 	List.item.delete(req.params._id);
+// 	console
 
 module.exports = {listRouter};

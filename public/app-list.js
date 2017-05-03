@@ -1,63 +1,18 @@
-var MOCK_LIST_ITEM_UPDATES = {
-	"listItemUpdates": [
-		{
-			"id": "1111111",
-			"name": "Ween ticket",
-			"description": "for red rocks concert",
-			"url": " ",
-			"price": "$20.00",
-			"dateAdded": "4.12.17"
-		},
-		{
-			"id": "2222222",
-			"name": "silverware",
-			"description": "",
-			"url": " ",
-			"price": "$30.00",
-			"dateAdded": "4.12.17"
-		},
-		{
-			"id": "3333333",
-			"name": "dress",
-			"description": "for sister's wedding",
-			"url": " ",
-			"price": "$100.00",
-			"dateAdded": "4.12.17"
-		},
-		{
-			"id": "4444444",
-			"name": "open toe shoes",
-			"description": "need for spring",
-			"url": " ",
-			"price": "$40.00",
-			"dateAdded": "4.12.17"
-		},
-
-	]
+var state = {
+	id: null,
+	list: null
 }
 
-function addList(list){
-	console.log('Adding list ');
-	$.ajax({
-		method: 'POST',
-		url: '/list',
-		data: JSON.stringify(list),
-		success: function(data) {
-			getAndDisplayListUpdates();
-			console.log('xxx');
-			window.location = 'profile.html';
-		},
-		dataType: 'json',
-    	contentType: 'application/json'
-	});
-}
+var LISTS_URL = '/lists/';
 
+//first
 function addListItem(product) {
   console.log('Adding list item');
+  state.list.items.push(product)
   $.ajax({
-    method: 'POST',
-    url: '/items',
-    data: JSON.stringify(product),
+    method: 'PUT',
+    url: LISTS_URL + state.id,
+    data: JSON.stringify(state.list),
     success: function(data) {
       getAndDisplayListItemUpdates();
     },
@@ -67,11 +22,13 @@ function addListItem(product) {
 }
 
 function deleteListItem(productId) {
-  console.log('Deleting list item `' + productId + '`');
+  console.log('Deleting list item');
+
   $.ajax({
-    url: SHOPPING_LIST_URL + '/' + productId,
+    url: LISTS_URL + state.id,
     method: 'DELETE',
     success: getAndDisplayListItemUpdates
+    
   });
 }
 
@@ -94,45 +51,37 @@ function getRecentListUpdates(callbackFn) {
     setTimeout(function(){ callbackFn(MOCK_LIST_ITEM_UPDATES)}, 1);
 }
 
-// var newItem = '<div class="item">' +
-//        	'<h3>' + $('item-name').val() + '</h3>'
-//        	+ '<p>' + $('input[description]').val() + '</p>'
-//        	+ '<p>' + $('input[url]').val() + '</p>' + '<p>' + $('input[price]').val() + '</p>' 
-//        	+ '<button class="check">Check</button><button class="delete">Remove</button></div>'
-
- // const newItem = `<div class="item">
- //       		<h3>$('item-name').val()</h3>
- //       	</div>`	
+var newItemTemplate = 
+`<div class="item">
+       	<h3 id="item-name"></h3>
+       	<p id="item-description"></p>
+       	<p id="item-url"></p>
+       	<p id="item-price"></p> 
+       	<button class="check">Check</button><button class="delete">Remove</button>
+</div>`
 
       	
-
-function displayListItemUpdates(data) {
+//second
+function getAndDisplayListItemUpdates() {
 	
-	for (index in data.listItemUpdates) {
-		var html = `<div class="item">` +
-       	`<h3>` + $('#item-name').val() + '</h3>'
-       	+ '<p>' + data.listItemUpdates[index].description + '</p>'
-       	+ '<p>' + data.listItemUpdates[index].url + '</p>' + '<p>' + data.listItemUpdates[index].price + '</p>' 
-       	+ '<button class="check">Check</button><button class="delete">Remove</button></div>'
-       $('.list-items').append(html);
-   }
-}
-
-function displayListUpdates(data) {
-    for (index in data.listUpdates) {
-       $('.list-section').append(
-        // '<p>' + data.listUpdates[index].text + '</p>');
-  `<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">` + $('#list-name').val() + `</h3>
-        <p class="card-text">` + $('#list-name').val() + `</p>
-        <a href="lists.html" class="btn btn-primary">View List</a>
-      </div>
-    </div>
-  </div>`);
-    }
+	console.log('displaying items')
+	
+	$.getJSON(LISTS_URL + state.id, function(list) {
+ 		state.list = list 
+ 	$('.list-name').html(list.name);
+ 		
+ 		var itemElement = list.items.map(function(item){
+	 	var element = $(newItemTemplate);
+	 	
+	 	element.attr('id', item.id);
+	 	element.find('#item-name').append(item.name);
+	 	element.find('#item-description').append(item.description);
+	 	element.find('#item-url').append(item.url);	
+	 	element.find('#item-price').append(item.price);		
+	 	return element;
+ 	});
+ 	$('.list-items').html(itemElement);	
+ })
 }
 
 function handleListItemAdd() {
@@ -144,80 +93,54 @@ function handleListItemAdd() {
     }
     else {
 	    var newItem = {
-				name: $('item-name').val(),
-				description: $('item-description').val(),
-				url: $('item-url').val(),
-				price: $('item-price').val()
+				name: $('#item-name').val(),
+				description: $('#item-description').val(),
+				url: $('#item-url').val(),
+				price: $('#item-price').val()
 	} 
 	    addListItem(newItem)
     }
   });
-	$('.list-info').submit(function(e){
+}
+
+function handleListItemDelete() {
+console.log('removing list');
+	$('.list-items').on('click', '.delete', function(e){
 		e.preventDefault();
-		if (!$('#list-name').val()) {
-			alert('Please enter list name');
-		}
-		else {
-		var newList = { 
-				name: $('#list-name').val(), 
-				description: $('#list-name').val() 
-			}
-		addList(newList)	
-		}
+		deleteListItem(
+			$(e.currentTarget).closest('.item').attr('id'));
+			
 	});
-
 }
 
-function getAndDisplayListItemUpdates() {
-	getRecentListUpdates(displayListItemUpdates);
-}
 
-function getAndDisplayListUpdates() {
-	getRecentListUpdates(displayListUpdates);
-}
+
+// 	$('.delete').submit(function(e) {
+// 		e.preventDefault();
+// 		deleteListItem(item)
+// 	})
+// };
+
+
+//may have to comment this out?
+// function getAndDisplayListUpdates() {
+// 	getRecentListUpdates(displayListUpdates);
+// }
 
 
 $(function() {
+	state.id =location.search.split("id=")[1]
+	handleListItemDelete();
 	handleListItemAdd();
 	getAndDisplayListItemUpdates();
 });
 
+$(function() {
+	$('.list-submit').click(function(){
+	 		window.location = 'profile.html?id=' 
 
-
-
-
-
-
-
-// function populateItem(){
-// 	var name = $('input[name]').val();
-// 	var description = $('input[description]').val();
-// 	var url = $('input[url]').val();
-// 	var price = $('input[price]').val();
-// 	if (!name){
-// 		alert('Please include item name');
-// 	}
-	
-
-	
-// }
-
-
-
-
-// var itemTemplate = (
-// 	`<div class="item">
-// 	<p>${data.listItemUpdates[index].name}</p>
-// 	<p>${data.listItemUpdates[index].description}</p>
-// 	<p>${data.listItemUpdates[index].price}</p>
-// 	</div>`)
-
-// var itemTemplate = 
-// `<div class="item">` +
-//        	`<h3>` + data.listItemUpdates[index].name + '</h3>'
-//        	+ '<p>' + data.listItemUpdates[index].description + '</p>'
-//        	+ '<p>' + data.listItemUpdates[index].url + '</p>' + '<p>' + data.listItemUpdates[index].price + '</p>' 
-//        	+ '<button class="check">Check</button><button class="delete">Remove</button></div>'
+})
+});
 
 
 var listTemplate = (
@@ -232,3 +155,4 @@ $('.new-item').click(function(){
 	event.preventDefault();
 	$('.form-box').removeClass('hidden');
 })
+

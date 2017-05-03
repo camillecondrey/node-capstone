@@ -10,31 +10,17 @@ const {router} = require('./router');
 const {User, List, listItems} = require('./models');
 const {listRouter} = require('./listrouter')
 
+app.use(bodyParser.json());
 app.use(express.static('public'));
 exports.app = app;
 
 app.use('/users', router);
-app.use('/items', listRouter);
-app.use(bodyParser.json());
+app.use('/lists', listRouter);
+app.use(express.static('public'));
 
-app.get('/list', (req, res) => {
-	res.json(List.get());
-});
 
-app.post('/list', (req, res) => {
-	const requiredFields = ['name'];
-	for  (let i=0; i<requiredFields.length; i++) {
-		const field = requiredFields[i];
-		if (!(field in req.body)) {
-			const message = `Missing \`${field}\` in request body`
-			console.error(message);
-			return res.status(400).send(message);
-		}
-	}
 
-	const list = List.create(req.body.name);
-	res.status(201).json(list);
-})
+
 
 // app.put('/list/:id', (req, res) => {
 // 	const requiredFields = ['name', 'id'];

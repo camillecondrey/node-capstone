@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form class="list-info">
+<!-- <form action="/users/me" class="list-info">
 	<div class="form-group">
 	  	<label for="example-text-input" class="col-2 col-form-label">Name your List:</label>
 	  	<div class="col-10">
@@ -20,18 +20,18 @@
 	  	<div class="col-10">
 	    <input class="form-control" type="text" value="" placeholder="optional" id="description-name"/>
 	  </div>
-	</div>
-
+	</div> -->
+<h1 class="list-name">List Name</h1>
 <div class="edit-buttons">	
 	<button class="new-item">Add New Item</button>
-	<button type="submit">Done</button>
+	<button class="list-submit" type="submit">Done</button>
 </div>	
 </form>
 
 	
 	
 
-<form class="form-box hidden add-item-form">
+<form method="post" action="/items" class="form-box hidden add-item-form">
 	<div class="form-group">
 	  <label for="example-text-input" class="col-2 col-form-label">Item Name</label>
 		  <div class="col-10">

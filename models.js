@@ -4,19 +4,25 @@ const bcrypt = require('bcryptjs')
 
 mongoose.Promise = global.Promise;
 
-const productSchema = mongoose.Schema({
-	name: {type: String, required: true},
-	description: {type: String},
-	url: {type: String},
-	price: {type: Number}, 
+// const productSchema = mongoose.Schema({
+// 	name: {type: String, required: true},
+// 	description: {type: String},
+// 	url: {type: String},
+// 	price: {type: Number}, 
 	
-	// image: {type: `${}`}
-});
+// 	// image: {type: `${}`}
+// });
 
 const ListSchema = mongoose.Schema({
 	name: {type: String, required: true},
 	description: {type: String},
-  id: {type: String}
+  id: {type: String},
+  items: [{
+    name: {type: String},
+    description: {type: String},
+    url: {type: String},
+    price: {type: Number}
+  }]
 });
 
 const UserSchema = mongoose.Schema({
@@ -31,11 +37,7 @@ const UserSchema = mongoose.Schema({
   },
   firstName: {type: String, default: ""},
   lastName: {type: String, default: ""},
-  lists: [ListSchema],
-  // lists: {
-  // 	products: [productSchema]
-  // }
-  products: [productSchema] 
+  lists: [ListSchema] 
 });
 
 UserSchema.methods.apiRepr = function() {
@@ -60,9 +62,9 @@ UserSchema.statics.hashPassword = function(password) {
 
 const User = mongoose.model('User', UserSchema);
 const List = mongoose.model('List', ListSchema);
-const listItems = mongoose.model('listItems', productSchema)
+// const ListItems = mongoose.model('ListItems', productSchema);
 
-module.exports = {User, List, listItems};
+module.exports = {User, List};
 
 
 

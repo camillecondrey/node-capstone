@@ -4,16 +4,17 @@
 
 
 body {
-	background-color;
+	background-image: linear-gradient(to right, #2A008B, #009092);
 	text-align: center;
 
 }
 
 nav {
-	height: 70px;
+	height: 82px;
 	display: block;
 	min-width: 1000px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
+	/*background-color: #bdbdbd;*/
 }
 
 .log-in {
@@ -22,24 +23,82 @@ nav {
 }
 
 .login {
-	height: 40px;
-	margin:0 auto;
+	width: 286px;
+	border: none;
+	padding: 15px;
+	border-radius: 3px;
+	height: 34px;
+	font-size: 15px;
+	margin-top: 20px;
+	margin-right: 10px;
+	font-family: 'Poppins', sans-serif;
 }
 
-.get-started {
+.mission-statement {
+	font-size: 30px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+}
 
+
+.span {
+	margin-top: 20px;
+	font-size: 18px;
+	line-height: 28px;
+	color: white;
+	font-family: 'Poppins', sans-serif;
 }
 
 .sign-up {
 	margin: auto;
-	width: 320px;
-	
+	width: 380px;
+	height: 400px;
 	padding: 40px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
+	margin-top: 40px;
+	background-color: white;
+	border-radius: 4px;
 }
 
-/*#hidden {
-	display: none;
-}*/
+.sign-up-input {
+	width: 286px;
+	border: 2px solid #D2BFFF;
+	padding: 15px;
+	border-radius: 3px;
+	height: 30px;
+	font-size: 18px;
+	display: block;
+	margin-top: 23px;
+	margin-bottom: 23px;
+}
 
+label {
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 8px;
+	font-family: 'Poppins', sans-serif;
+	color: #2A008B;
+}
 
+legend {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 25px;
+	margin-top: 04px;
+	font-family: 'Poppins', sans-serif;
+	color: #2A008B;
+}
+
+#button {
+	height: 35px;
+	width: 100px;
+	background-color: #2A008B;
+	border: none;
+	font-size: 16px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+}

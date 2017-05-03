@@ -3,18 +3,24 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
 	<nav>
 		<div class="log-in">
-			<form class="log-in-form" action="/me" method="post">
+			<form class="log-in-form" action="/users/me" method="post">
+				
 				<input class="login" type="email" placeholder="email address" name="email" id="email" required/>
+				
 				<input class="login" type="password" placeholder="password" name="password" id="password" required/>
-				<button type="submit" class="login">Log In</button>
+				<button type="submit" id="button" action="profile.html">Log In</button>
 			</form>	
 		</div>	
 	</nav>
-	<h2>app description</h2>
+	<p class="mission-statement">Organize all of your wants and needs in<br> one place with List It.</p>
+		<p class="span"><!--  Sometimes we can't buy all of the things we want or need at the same time.  -->Whether you're shopping for 
+		things you need for a trip, home improvement, or just a new<br> summer wardrobe, List It lets you organize those things
+	 into lists based on categories you<br> choose. For those times when you can't buy it all at once, List It.</p>
 	
 	<div class="sign-up">
 		<form class="sign-up-form" action="/users" method="post">
@@ -22,12 +28,12 @@
 			<legend>Create Account</legend>
 
 			<label for="username">Email</label>
-			<input type="email" name="username" id="username" required/>
+			<input class="sign-up-input" type="email" name="username" id="username" required/>
 
 			<label for="password">Password</label>
-			<input type="password" name="password" id="sign-up-password" required/>
+			<input class="sign-up-input" type="password" name="password" id="sign-up-password" required/>
 
-			<button type="submit" action="">
+			<button type="submit" action="" id="button">
 				Submit</button>
 
 		</form>
