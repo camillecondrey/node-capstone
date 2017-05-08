@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 // const uuid = require('uuid');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+
+
 
 mongoose.Promise = global.Promise;
 
@@ -17,13 +19,17 @@ const ListSchema = mongoose.Schema({
 	name: {type: String, required: true},
 	description: {type: String},
   id: {type: String},
+  user: { type: mongoose.Schema.Types.ObjectId, 
+          ref: 'User',
+          required: [true,'No user id found']},
   items: [{
     name: {type: String},
     description: {type: String},
     url: {type: String},
-    price: {type: Number}
+    price: {type: String}
   }]
 });
+
 
 const UserSchema = mongoose.Schema({
   username: {

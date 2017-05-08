@@ -1,11 +1,23 @@
+var state = {
+	id: null,
+	list: null
+}
+
+
+// <button class="trash-can">
+
 var listTemplate = 
 `<div class="card w-75">
   <div class="card-block">
+   
+    
+    <span id="trash-can" class="glyphicon glyphicon-trash"></span>
+   
     <p class="card-title"></p>
     
     <p class="card-text"></p>
     
-    <button class="view-list">View List</button>
+    <button class="view-list">View/Edit List</button>
   </div>
 </div>`
 
@@ -14,12 +26,12 @@ var listAddTemplate =
 `<form id="add-list-form" class="card w-75">
 	  <div class="card-block">
 	  	<form class="list-add-form">
-	  	<label>List Name</label>
-	    <input id="list-name" class="card-title" placeholder="required"></input>
+	  	<label>List Name:</label>
+	    <input id="list-name" class="card-title input" placeholder="required"></input>
 	    <!-- <p class="item-count">8 items</p> -->
-	    <label>List Description
-	    <input id="list-description" class="card-text" placeholder="optional"></input>
-	    <button type="submit" class="add-items">Add Items</button>
+	    <label>List Description:</label>
+	    <input id="list-description" class="card-text input" placeholder="optional"></input>
+	    <button type="submit" class="add-items">Create List</button>
 	  </div>
 </form>`
 
@@ -52,29 +64,45 @@ $('.create').click(function(){
 		}
 		addList(list);
 	})
-	$('.list-section').append(html);
+	$('.create-list-section').append(html);
 })
+
+
+$('.logout').click(function() {
+	window.location = 'index.html';
+});
+
 
 
 //fourth
  function getAndDisplayLists() {
  	console.log('displaying list');
- 	$.getJSON(LISTS_URL, function(lists) {
- 		
- 	var listElement = lists.map(function(list){
-	 	var element = $(listTemplate);
-	 	element.attr('id', list._id);
-	 	element.find('.card-title').html(list.name);
-	 	element.find('.card-text').html(list.description);	
-	 	element.find('.view-list').click(function(){
-	 		window.location = 'lists.html?id=' + list._id;
-	 	})
+ 	$.ajax({
+    method: 'GET',
+    url: LISTS_URL,
+    
+    success: function(data) {
+    	var listElement = data.map(function(list){
+		 	var element = $(listTemplate);
+		 	element.attr('id', list._id);
+		 	element.find('.card-title').html(list.name);
+		 	element.find('.card-text').html(list.description);	
+		 	element.find('.view-list').click(function(){
+		 		window.location = 'lists.html?id=' + list._id;
+		 	})
  	
- 	return element;
-	 });
- $('.list-section').html(listElement);	
-});
-}
+ 			return element;
+
+	 	});
+	 	$('.list-section').html(listElement);	
+      
+    },
+    headers: {
+			Authorization: localStorage.headers
+		}
+	});
+    
+ }
 
 
 
@@ -91,6 +119,9 @@ function addList(list) {
     	getAndDisplayLists();	
       
     },
+    headers: {
+			Authorization: localStorage.headers
+		},
     dataType: 'json',
     contentType: 'application/json'
   });
@@ -101,7 +132,13 @@ function deleteList(listId) {
   $.ajax({
     url: LISTS_URL + '/' + listId,
     method: 'DELETE',
-    success: getAndDisplayLists
+    // data: JSON.stringify(state.list),
+    dataType: 'json',
+    success: getAndDisplayLists,
+    contentType: 'application/json',
+    headers: {
+			Authorization: localStorage.headers
+		}
   });
 }
 
@@ -131,11 +168,30 @@ function handleListAdd() {
 }
 
 
+function handleListDelete() {
+	console.log('removing list');
+	$('.list-section').on('click', '#trash-can', function(e){
+		e.preventDefault();
+		deleteList(
+			$(e.currentTarget).closest('.card').attr('id'));
+	} );
+}
 
 
+// function handleListItemDelete() {
+// console.log('removing list item');
+// 	$('.list-items').on('click', '.delete', function(e){
+// 		e.preventDefault();
+// 		deleteListItem(
+// 			$(e.currentTarget).closest('.item').attr('id'));
+			
+// 	});
+// }
 
 
 $(function() {
   getAndDisplayLists();
   handleListAdd();
+  handleListDelete();
 });
+

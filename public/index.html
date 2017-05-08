@@ -6,21 +6,37 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
+<p class="app-name">List It</p>
 	<nav>
+
 		<div class="log-in">
 			<form class="log-in-form" action="/users/me" method="post">
 				
 				<input class="login" type="email" placeholder="email address" name="email" id="email" required/>
 				
 				<input class="login" type="password" placeholder="password" name="password" id="password" required/>
-				<button type="submit" id="button" action="profile.html">Log In</button>
+				<button type="submit" id="log-in-button" action="profile.html">Log In</button>
 			</form>	
 		</div>	
 	</nav>
 	<p class="mission-statement">Organize all of your wants and needs in<br> one place with List It.</p>
 		<p class="span"><!--  Sometimes we can't buy all of the things we want or need at the same time.  -->Whether you're shopping for 
 		things you need for a trip, home improvement, or just a new<br> summer wardrobe, List It lets you organize those things
-	 into lists based on categories you<br> choose. For those times when you can't buy it all at once, List It.</p>
+	 into lists based on categories you choose. </p>
+<section>
+	<div class="app-image-1">
+		<img class="app-1" src="app-screen-shot-1.png">
+		<p class="app-description">Create and maintain lists from your profile page</p>
+	</div>
+	<div class="app-image-2">
+		<img class="app-2" src="app-screen-shot-2.png">
+		<p class="app-description">Store information about each item including price, description, and a link to the product</p>
+	</div>	
+</section> 
+
+<div>
+<p class="tag-line">For those times when you can't buy it all at once, List It.</p>
+</div>
 	
 	<div class="sign-up">
 		<form class="sign-up-form" action="/users" method="post">

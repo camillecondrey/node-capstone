@@ -10,21 +10,27 @@ const listRouter = express.Router();
 
 listRouter.use(jsonParser);
 
-listRouter.get('/', (req, res) => {
-	List.find().then(lists => {
+
+
+
+listRouter.get('/', passport.authenticate('basic', {session: false}), (req, res) => {
+
+	List.find({
+		user: req.user._id
+	}).then(lists => {
 		res.json(lists)
 	});
 	
 });
 
-listRouter.get('/:id', (req, res) => {
+listRouter.get('/:id',  (req, res) => {
 	List.findById(req.params.id).then(lists => {
 		res.json(lists)
 	});
 	
 });
 
-listRouter.post('/', jsonParser, (req, res) => {
+listRouter.post('/', passport.authenticate('basic', {session: false}), jsonParser, (req, res) => {
 	const requiredFields = ['name'];
 	for  (let i=0; i<requiredFields.length; i++) {
 		const field = requiredFields[i];
@@ -34,6 +40,7 @@ listRouter.post('/', jsonParser, (req, res) => {
 			return res.status(400).send(message);
 		}
 	}
+	req.body.user = req.user._id
 
 	const item = List.create(req.body);
 	res.status(201).json(item);
@@ -63,19 +70,28 @@ listRouter.put('/:id', (req, res) => {
 	List.update({ 
 		_id: req.params.id }, { $set: req.body}, function(data) {
 		console.log(data);
-		res.status(204);
+		res.sendStatus(204);
 	});
 	
 });
 
-listRouter.delete('/:id', (req, res) => {
-	List.delete({
-		_id: req.params.id}, {$set: req.body}, function(data){
-			console.log(data);
-			res.status(204);
+// listRouter.delete('/:id', passport.authenticate('basic', {session: false}), (req, res) => {
+// 	console.log('eh??')
+// 	List.delete({
+// 		_id: req.params.id}, function(data){
+// 			console.log(data);
+// 			res.sendStatus(204);
+// 		});
+// });
+
+listRouter.delete('/:id', passport.authenticate('basic', {session: false}), (req, res) => {
+	List.findOneAndRemove({
+		_id: req.params.id},
+		function() {
+			res.sendStatus(204);
 		});
-	// console.log('Deleted list');
-	// res.status(204).end();
+	console.log('deleting selected list');
+	
 });
 
 // listRouter.delete('/:id', (req, res) => {

@@ -11,26 +11,28 @@ const router = express.Router();
 router.use(jsonParser);
 
 
-const strategy = new BasicStrategy(
-  (username, password, cb) => {
-    User
-      .findOne({username})
-      .exec()
-      .then(user => {
-        if (!user) {
-          return cb(null, false, {
-            message: 'Incorrect username'
-          });
-        }
-        if (user.password !== password) {
-          return cb(null, false, 'Incorrect password');
-        }
-        return cb(null, user);
-      })
-      .catch(err => cb(err))
-});
+// const strategy = new BasicStrategy(
+//   (username, password, cb) => {
+//     console.log(username, password);
+//     User
+//       .findOne({username})
+//       .exec()
+//       .then(user => {
+        
+//         if (!user) {
+//           return cb(null, false, {
+//             message: 'Incorrect username'
+//           });
+//         }
+//         if (user.password !== password) {
+//           return cb(null, false, 'Incorrect password');
+//         }
+//         return cb(null, user);
+//       })
+//       .catch(err => cb(err))
+// });
 
-passport.use(strategy);
+// passport.use(strategy);
 
 
 router.post('/', (req, res) => {

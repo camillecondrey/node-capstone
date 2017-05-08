@@ -17,19 +17,35 @@ function addListItem(product) {
       getAndDisplayListItemUpdates();
     },
     dataType: 'json',
-    contentType: 'application/json'
+    contentType: 'application/json',
+    headers: {
+			authorization: localStorage.headers
+		}
   });
 }
 
+
+//third
 function deleteListItem(productId) {
   console.log('Deleting list item');
-
+  var item = state.list.items.filter(function(item){
+  	return item._id != productId
+  })
+  state.list.items = item 
   $.ajax({
     url: LISTS_URL + state.id,
-    method: 'DELETE',
-    success: getAndDisplayListItemUpdates
-    
+    method: 'PUT',
+    data: JSON.stringify(state.list),
+    dataType: 'json',
+
+    success: getAndDisplayListItemUpdates,
+    contentType: 'application/json',
+    headers: {
+			authorization: localStorage.headers
+		}
+
   });
+  console.log('test');
 }
 
 function updateListItem(product) {
@@ -42,7 +58,10 @@ function updateListItem(product) {
       getAndDisplayListItemUpdates()
     },
     dataType: 'json',
-    contentType: 'application/json'
+    contentType: 'application/json',
+    headers: {
+			authorization: localStorage.headers
+		}
   });
 }
 
@@ -55,10 +74,21 @@ var newItemTemplate =
 `<div class="item">
        	<h3 id="item-name"></h3>
        	<p id="item-description"></p>
-       	<p id="item-url"></p>
+       	<a href="" target="_blank" id="item-url"></a>
        	<p id="item-price"></p> 
-       	<button class="check">Check</button><button class="delete">Remove</button>
+       	<button class="delete">Remove</button>
 </div>`
+
+
+
+
+$(function countItems() {
+	var mainDiv = document.getElementById('item-section');
+	var count = mainDiv.children.length;
+	// console.log(count);
+	console.log($("#item-section div").length);
+	// console.log($('div', '.item').length);
+});
 
       	
 //second
@@ -73,10 +103,14 @@ function getAndDisplayListItemUpdates() {
  		var itemElement = list.items.map(function(item){
 	 	var element = $(newItemTemplate);
 	 	
-	 	element.attr('id', item.id);
+	 	var a = document.getElementById('item-url');
+	 	a.href = item.url
+
+	 	
+	 	element.attr('id', item._id);
 	 	element.find('#item-name').append(item.name);
 	 	element.find('#item-description').append(item.description);
-	 	element.find('#item-url').append(item.url);	
+	 	element.find('#item-url').append(item.url).attr('href', item.url);	
 	 	element.find('#item-price').append(item.price);		
 	 	return element;
  	});
@@ -103,8 +137,10 @@ function handleListItemAdd() {
   });
 }
 
+
+//first
 function handleListItemDelete() {
-console.log('removing list');
+console.log('removing list item');
 	$('.list-items').on('click', '.delete', function(e){
 		e.preventDefault();
 		deleteListItem(
@@ -115,17 +151,11 @@ console.log('removing list');
 
 
 
-// 	$('.delete').submit(function(e) {
-// 		e.preventDefault();
-// 		deleteListItem(item)
-// 	})
-// };
+	
 
 
-//may have to comment this out?
-// function getAndDisplayListUpdates() {
-// 	getRecentListUpdates(displayListUpdates);
-// }
+
+
 
 
 $(function() {
@@ -133,6 +163,7 @@ $(function() {
 	handleListItemDelete();
 	handleListItemAdd();
 	getAndDisplayListItemUpdates();
+	// countItems();
 });
 
 $(function() {
@@ -156,3 +187,9 @@ $('.new-item').click(function(){
 	$('.form-box').removeClass('hidden');
 })
 
+$(function() {
+	$('.check').click(function(){
+	event.preventDefault();
+	$(e.currentTarget).closest('#item-name').addClass('line-thru');
+})
+});

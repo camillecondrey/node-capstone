@@ -27,20 +27,21 @@ function signUp (username, password) {
 }
 
 function logIn (username, password) {
-	console.log('logging user in');
+	console.log(username, password);
 	$.ajax({ 
 		url: '/users/me', 
 		type: 'GET',
 		headers: {
-			authorization: "Basic "+ btoa(username+ ":"+ password)
+			Authorization: "Basic "+ btoa(username+ ":"+ password)
 		}, 
-		data: JSON.stringify({username, password}), 
-		contentType: 'application/json'
-		, success: function(got) { 
+		
+		 success: function(got) { 
 			localStorage.headers = "Basic "+ btoa(username+ ":"+ password);
 			window.location = 'profile.html';
 		} 
+
 	});
+	console.log('help me out here buddy')
 }
 
 // function addProduct () {

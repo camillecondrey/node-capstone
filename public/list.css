@@ -1,6 +1,6 @@
-/*body {
+body {
 	background-image: linear-gradient(to right, #2A008B, #009092);
-}*/
+}
 
 
 h1 {
@@ -11,14 +11,17 @@ h1 {
 
 .form-group {
 	width: 600px;
-	display: inline-block;
+
+	/*display: inline-block;*/
+	/*margin: auto;*/
+
+
 }
 
-.form-box {
-	border: 1px solid black;
-	width: 700px;
-	margin: auto;
-	padding: 40px;
+.group {
+	/*margin: auto !important;*/
+	margin-bottom: 100px;
+
 }
 
 .list-info {
@@ -29,6 +32,8 @@ h1 {
 
 .edit-buttons {
 	text-align: center;
+	/*margin-top: 100px;*/
+	/*padding-top: 80px;*/
 	
 }
 
@@ -36,17 +41,144 @@ h1 {
 	display: none;
 }
 
-.item {
-	border: 1px solid black;
+/*.item {
+	
+
 	background-color: white;
 	width: 700px;
 	margin-top: 50px;
 	margin-bottom: 50px;
 	margin-left: 50px;
 	margin-right: 50px;
+
+	margin: auto;
+	padding: 20px;
+}*/
+
+.item {
+	padding: 30px;
+	font-family: 'Poppins', sans-serif;
+	margin-left: 30px;
 }
 
 .add {
 	text-align: center;
+	height: 35px;
+	width: 585px;
+	background-color: Transparent;
+	border: 3px solid white !important;
+	border: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+	/*margin: auto !important;*/
+	/*margin-bottom: 40px;*/
+	margin-top: 20px;
+
 }
 
+.list-name{
+	color: white;
+	margin: 40px;
+	padding-top: 100px;
+	/*margin-top: 100px;*/
+}
+
+.list-items {
+	margin-top: 50px !important;
+	border-radius: 4px;
+	background-color: white;
+	width: 700px;
+	margin: auto;
+	margin-bottom: 50px;
+}
+
+.new-item {
+	height: 35px;
+	width: 280px;
+	background-color: Transparent;
+	border: 3px solid white !important;
+	border: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+	margin-right: 10px;
+}
+
+.list-submit {
+	height: 35px;
+	width: 280px;
+	background-color: Transparent;
+	border: 3px solid white !important;
+	border: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+	margin-left: 10px;
+}
+
+label {
+	color: white;
+	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 10px;
+}
+
+
+
+.form-control {
+	width: 585px;
+/*	margin-right: 10px;*/
+
+}
+
+.form-box {
+	margin-left: 380px;
+	margin-top: 40px;
+}
+
+.line-thru {
+	text-decoration: line-through;
+}
+
+.delete {
+	height: 35px;
+	width: 100px;
+	background-color: #2A008B;
+	border: none;
+	font-size: 16px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 30px;
+}
+
+.app-name {
+	color: white;
+	float: left;
+	/*margin-top: 20px;*/
+	margin-left: 30px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 30px;
+}
+
+.logout {
+	float: right;
+	/*margin-top: 20px;*/
+	margin-right: 20px;
+	height: 35px;
+	width: 120px;
+	background-color: Transparent;
+	border: 3px solid white;
+	font-size: 20px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+}
+
+/*.heading {
+	margin-top: 100px;
+}*/
