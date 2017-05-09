@@ -59,6 +59,10 @@ h1 {
 	padding: 30px;
 	font-family: 'Poppins', sans-serif;
 	margin-left: 30px;
+	background-color: white;
+	margin-bottom: 35px;
+	border-radius: 4px;
+	width: 650px;
 }
 
 .add {
@@ -88,7 +92,7 @@ h1 {
 .list-items {
 	margin-top: 50px !important;
 	border-radius: 4px;
-	background-color: white;
+/*	background-color: white;*/
 	width: 700px;
 	margin: auto;
 	margin-bottom: 50px;
@@ -179,6 +183,67 @@ label {
 	font-family: 'Poppins', sans-serif;
 }
 
+#image {
+	height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+	border: none !important;
+}
+
 /*.heading {
 	margin-top: 100px;
 }*/
+
+.item-price {
+	font-size: 24px;
+	margin-top: 15px;
+}
+
+#availability {
+	margin-top: 15px;
+}
+
+
+#trash-can {
+	width: 40px;
+	height: 40px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 20px;
+}
+
+.glyphicon  {
+	font-size: 25px;
+	cursor: pointer;
+}
+
+
+#footer {
+	left:0px;
+   	bottom:0px;
+   	height:100px;
+   	width:100%;
+}
+
+.link {
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	bottom: 10px;
+	display: inline-block;
+
+}
+
+.credit {
+	margin-left: 50px;
+	padding-top: 50px;
+	font-weight: 700;
+	position: relative;
+	bottom: 10px;
+	display: inline-block;
+	text-align: left;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+
+}

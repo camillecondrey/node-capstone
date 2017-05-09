@@ -26,7 +26,9 @@ const ListSchema = mongoose.Schema({
     name: {type: String},
     description: {type: String},
     url: {type: String},
-    price: {type: String}
+    price: {type: String},
+    image: {type: String},
+    availability: {type: String}
   }]
 });
 

@@ -5,7 +5,7 @@
 
 body {
 	background-image: linear-gradient(to right, #2A008B, #009092);
-	text-align: center;
+/*	text-align: center;*/
 
 }
 
@@ -35,10 +35,11 @@ nav {
 
 .mission-statement {
 	font-size: 40px;
-	margin-top: 40px;
+	margin-top: 80px;
 	margin-bottom: 20px;
 	color: white;
 	font-family: 'Poppins', sans-serif;
+	text-align: center;
 }
 
 
@@ -48,6 +49,7 @@ nav {
 	line-height: 28px;
 	color: white;
 	font-family: 'Poppins', sans-serif;
+	text-align: center;
 }
 
 .sign-up {
@@ -142,7 +144,7 @@ legend {
 .app-image-1 {
 /*	border: 2px solid black;*/
 	margin-top: 100px;
-	width: 900px;
+	width: 1000px;
 	height: 300px;
 	margin-left: 200px;
 }
@@ -164,7 +166,7 @@ section {
 .app-description {
 	color: white;
 	font-family: 'Poppins', sans-serif;
-	font-size: 20px;
+	font-size: 24px;
 	padding-top: 40px;
 }
 
@@ -173,4 +175,33 @@ section {
 	font-size: 35px;
 	text-align: center;
 	color: white;
+}
+
+#footer {
+	left:0px;
+   	bottom:0px;
+   	height:100px;
+   	width:100%;
+}
+
+.link {
+	margin-left: 20px;
+	margin-right: 20px;
+	position: relative;
+	bottom: 10px;
+	display: inline-block;
+
+}
+
+.credit {
+	margin-left: 50px;
+	padding-top: 50px;
+	font-weight: 700;
+	position: relative;
+	bottom: 10px;
+	display: inline-block;
+	text-align: left;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+
 }

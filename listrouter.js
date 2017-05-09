@@ -2,6 +2,7 @@ const express = require('express');
 const jsonParser = require('body-parser').json();
 const passport = require('passport');
 const {List} = require('./models');
+var scrape = require('html-metadata');
 
 
 const listRouter = express.Router();
@@ -93,6 +94,14 @@ listRouter.delete('/:id', passport.authenticate('basic', {session: false}), (req
 	console.log('deleting selected list');
 	
 });
+
+listRouter.post('/metadata', passport.authenticate('basic', {session: false}), (req, res) => {
+
+		scrape(req.body.url).then(function(metadata){
+			res.json(metadata);
+			console.log(metadata);
+		});
+	});
 
 // listRouter.delete('/:id', (req, res) => {
 // 	List.item.delete(req.params._id);

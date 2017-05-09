@@ -24,6 +24,70 @@ function addListItem(product) {
   });
 }
 
+function getMetaData(product) {
+  console.log('get meta data');
+
+  $.ajax({
+    method: 'POST',
+    url: LISTS_URL + 'metadata',
+    data: JSON.stringify({
+    	url: product.url
+    }),
+    success: function(data) {
+    	console.log(data);
+
+    	if (product.description) {
+    		product.description = product.description
+    	} 
+
+    	else if (data.general && data.general.title) {
+    		product.description = data.general.title
+    	}
+    	// else if (data.twitter && data.twitter.description) {
+    	// 	product.description = data.twitter.description
+    	// }
+    	else if (data.openGraph && data.openGraph.description) {
+    		product.description = data.openGraph.description
+    	}
+
+    	if (data.general && data.general.title) {
+    		product.title = data.general.title
+    	}
+    	else if (data.twitter && data.twitter.title) {
+    		product.title = data.twitter.title
+    	}
+    	else if (data.openGraph && data.openGraph.title) {
+    		product.title = data.openGraph.title
+    	}
+
+
+    	if (data.twitter && data.twitter.image) {
+    		product.image = data.twitter.image
+    	}
+
+    	else if (data.openGraph && data.openGraph.image.url) {
+    		product.image = data.openGraph.image.url
+    	}
+
+    	if (data.openGraph && data.openGraph.availability) {
+    		product.availability = data.openGraph.availability
+    	}
+
+    	if (!product.image) {
+    		$('#image').addClass('hidden');
+    	}
+
+      addListItem(product);
+    },
+    dataType: 'json',
+    contentType: 'application/json',
+    headers: {
+			authorization: localStorage.headers
+		}
+  });
+}
+
+
 
 //third
 function deleteListItem(productId) {
@@ -72,11 +136,18 @@ function getRecentListUpdates(callbackFn) {
 
 var newItemTemplate = 
 `<div class="item">
+
+<span id="trash-can" class="glyphicon glyphicon-trash"></span>
+
+
        	<h3 id="item-name"></h3>
        	<p id="item-description"></p>
        	<a href="" target="_blank" id="item-url"></a>
-       	<p id="item-price"></p> 
-       	<button class="delete">Remove</button>
+       	<p class="item-price" id="item-price"></p> 
+       	<img id="image" src="">
+       	<p id="availability"></p>
+      
+
 </div>`
 
 
@@ -106,11 +177,15 @@ function getAndDisplayListItemUpdates() {
 	 	var a = document.getElementById('item-url');
 	 	a.href = item.url
 
+	 
+
 	 	
 	 	element.attr('id', item._id);
 	 	element.find('#item-name').append(item.name);
 	 	element.find('#item-description').append(item.description);
-	 	element.find('#item-url').append(item.url).attr('href', item.url);	
+	 	element.find('#item-url').append('Link to Product Page').attr('href', item.url);
+	 	element.find('#image').attr('src', item.image);	
+	 	element.find('#availability').append(item.availability);
 	 	element.find('#item-price').append(item.price);		
 	 	return element;
  	});
@@ -132,7 +207,9 @@ function handleListItemAdd() {
 				url: $('#item-url').val(),
 				price: $('#item-price').val()
 	} 
-	    addListItem(newItem)
+	    
+	    // addListItem(newItem)
+	    getMetaData(newItem)
     }
   });
 }
@@ -141,7 +218,7 @@ function handleListItemAdd() {
 //first
 function handleListItemDelete() {
 console.log('removing list item');
-	$('.list-items').on('click', '.delete', function(e){
+	$('.list-items').on('click', '#trash-can', function(e){
 		e.preventDefault();
 		deleteListItem(
 			$(e.currentTarget).closest('.item').attr('id'));

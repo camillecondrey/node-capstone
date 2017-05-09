@@ -7,7 +7,8 @@ var state = {
 // <button class="trash-can">
 
 var listTemplate = 
-`<div class="card w-75">
+
+`<div class="card col span_1_of_3">
   <div class="card-block">
    
     
@@ -28,7 +29,7 @@ var listAddTemplate =
 	  	<form class="list-add-form">
 	  	<label>List Name:</label>
 	    <input id="list-name" class="card-title input" placeholder="required"></input>
-	    <!-- <p class="item-count">8 items</p> -->
+	  
 	    <label>List Description:</label>
 	    <input id="list-description" class="card-text input" placeholder="optional"></input>
 	    <button type="submit" class="add-items">Create List</button>

@@ -41,7 +41,7 @@ function logIn (username, password) {
 		} 
 
 	});
-	console.log('help me out here buddy')
+	
 }
 
 // function addProduct () {
