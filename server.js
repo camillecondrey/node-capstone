@@ -22,37 +22,7 @@ app.use(express.static('public'));
 
 
 
-// app.put('/list/:id', (req, res) => {
-// 	const requiredFields = ['name', 'id'];
-// 	for (let i=0; i<requiredFields.length; i++) {
-// 		const field = requiredFields[i];
-// 		if (!(field in req.body)) {
-// 			const message = `Missing \`${field}\` in request body`
-// 			console.error(message);
-// 			return res.status(400).send(message);
-// 		}
-// 	}
 
-// 	if (req.params.id !== req.body.id) {
-// 		const message = (
-// 			`Request path id (${req.params.id}) and request body id (${req.body.id}) must match`);
-// 		console.error(message);
-// 		return res.status(400).send(message);
-// 	}
-
-// 	console.log(`Updating list \`${req.params.id}\``);
-// 	const updatedItem = List.update({
-// 		id: req.params.id,
-// 		name: req.body.name
-// 	});
-// 	res.status(204).json(updatedItem);
-// });
-
-// app.delete('/list/:id', (req, res) => {
-// 	List.delete(req.params.id);
-// 	console.log(`Deleted list \`${res.params.id}\``);
-// 	res.status(204).end();
-// });
 
 
 

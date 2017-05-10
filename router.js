@@ -5,35 +5,9 @@ const passport = require('passport');
 
 const {User} = require('./models');
 
-
 const router = express.Router();
 
 router.use(jsonParser);
-
-
-// const strategy = new BasicStrategy(
-//   (username, password, cb) => {
-//     console.log(username, password);
-//     User
-//       .findOne({username})
-//       .exec()
-//       .then(user => {
-        
-//         if (!user) {
-//           return cb(null, false, {
-//             message: 'Incorrect username'
-//           });
-//         }
-//         if (user.password !== password) {
-//           return cb(null, false, 'Incorrect password');
-//         }
-//         return cb(null, user);
-//       })
-//       .catch(err => cb(err))
-// });
-
-// passport.use(strategy);
-
 
 router.post('/', (req, res) => {
   if (!req.body) {
@@ -104,10 +78,6 @@ console.log("any text");
     });
 });
 
-// never expose all your users like below in a prod application
-// we're just doing this so we have a quick way to see
-// if we're creating users. keep in mind, you can also
-// verify this in the Mongo shell.
 router.get('/', (req, res) => {
   return User
     .find()
@@ -117,7 +87,6 @@ router.get('/', (req, res) => {
 });
 
 
-// NB: at time of writing, passport uses callbacks, not promises
 const basicStrategy = new BasicStrategy(function(username, password, callback) {
   let user;
   User

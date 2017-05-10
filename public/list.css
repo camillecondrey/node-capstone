@@ -224,6 +224,8 @@ label {
    	bottom:0px;
    	height:100px;
    	width:100%;
+   	margin-top: 200px;
+   	/*position: fixed;*/
 }
 
 .link {
@@ -238,6 +240,7 @@ label {
 .credit {
 	margin-left: 50px;
 	padding-top: 50px;
+	padding-bottom: 20px;
 	font-weight: 700;
 	position: relative;
 	bottom: 10px;
