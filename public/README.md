@@ -15,8 +15,6 @@ Screen Shots:
 
 Technologies used: 
 
-This app uses Javascript on both client and server side, HTML, CSS, Mocha, Chai, MongoDB, Node/Express to work.
-
 Built using: Node.js/Express/Mongoose
 
 Database: MongoDB
