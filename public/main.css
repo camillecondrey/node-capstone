@@ -141,6 +141,12 @@ legend {
 	float: right;
 }
 
+.app-3 {
+	width: 370px;
+	height: 200px;
+	float: left;
+}
+
 .app-image-1 {
 /*	border: 2px solid black;*/
 	margin-top: 100px;
@@ -156,6 +162,12 @@ legend {
 	height: 300px;
 	margin-left: 200px;
 /*	position: absolute;*/
+}
+
+.app-image-3 {
+	width: 1000px;
+	height: 300px;
+	margin-left: 200px;
 }
 
 section {

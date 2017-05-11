@@ -270,3 +270,7 @@ $(function() {
 	$(e.currentTarget).closest('#item-name').addClass('line-thru');
 })
 });
+
+$('.logout').click(function() {
+  window.location = 'index.html';
+});
