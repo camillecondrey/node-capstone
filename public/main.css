@@ -5,6 +5,7 @@
 
 body {
 	background-image: linear-gradient(to right, #2A008B, #009092);
+	min-width: 1000px;
 }
 
 nav {
@@ -189,9 +190,16 @@ legend {
 	height: 170px;
 }
 
+
+/*@media all and (max-width: 800px) {
+	body {
+		min-width: 100%;
+	}
+}*/
+
 @media all and (max-width:800px) 
 {
-    .demo-1, .demo-2, .demo-3
+    .demo-1, .demo-2, .demo-3, .mission-statement, .span, 
     {
         display: block; 
         float: none; 
