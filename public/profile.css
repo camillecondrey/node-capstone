@@ -7,9 +7,7 @@ html {
 	min-height: 100%;
 }
 
-/*body {
-	background-image: linear-gradient(to right, #2A008B, #D2BFFF);
-}*/
+
 
 body {
 	background-image: linear-gradient(to right, #2A008B, #00ced1);
@@ -39,8 +37,6 @@ h1 {
 }
 
 .heading {
-	/*height: 400px;
-	background-image: linear-gradient(to right, #0066d1, #00ced1);*/
 	text-align: center;
 }
 
@@ -71,7 +67,6 @@ h1 {
 }
 
 .card {
-	/*display: inline-block;*/
 	margin-right: 30px;
 	margin-left: 0;
 	width: 400px;
@@ -244,7 +239,6 @@ label {
    	height:100px;
    	width:100%;
    	margin-top: 200px;
-   	/*position: fixed;*/
 }
 
 .link {

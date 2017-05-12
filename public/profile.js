@@ -4,8 +4,6 @@ var state = {
 }
 
 
-// <button class="trash-can">
-
 var listTemplate = 
 
 `<div class="card col span_1_of_3">
@@ -41,18 +39,9 @@ var listAddTemplate =
 
 var LISTS_URL = '/lists';
 
-//third
-// function createListPage() {
-//   console.log('creating list')
-//   $.getJSON(LISTS_URL, function(lists) {
-//     console.log('Rendering lists');
-//     getAndDisplayLists(lists);
-// 	})	
-// }    
+  
 
 
-
-//first
 $('.create').click(function(){
 	var html = $(listAddTemplate);
 	console.log('testingggg');
@@ -75,7 +64,7 @@ $('.logout').click(function() {
 
 
 
-//fourth
+
  function getAndDisplayLists() {
  	console.log('displaying list');
  	$.ajax({
@@ -109,7 +98,7 @@ $('.logout').click(function() {
 
 
 
-//second
+
 function addList(list) {
   console.log('Adding list');
   $.ajax({
@@ -133,7 +122,7 @@ function deleteList(listId) {
   $.ajax({
     url: LISTS_URL + '/' + listId,
     method: 'DELETE',
-    // data: JSON.stringify(state.list),
+ 
     dataType: 'json',
     success: getAndDisplayLists,
     contentType: 'application/json',
@@ -179,15 +168,7 @@ function handleListDelete() {
 }
 
 
-// function handleListItemDelete() {
-// console.log('removing list item');
-// 	$('.list-items').on('click', '.delete', function(e){
-// 		e.preventDefault();
-// 		deleteListItem(
-// 			$(e.currentTarget).closest('.item').attr('id'));
-			
-// 	});
-// }
+
 
 
 $(function() {

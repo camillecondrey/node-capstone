@@ -5,7 +5,7 @@ var state = {
 
 var LISTS_URL = '/lists/';
 
-//first
+
 function addListItem(product) {
   console.log('Adding list item');
   state.list.items.push(product)
@@ -43,9 +43,7 @@ function getMetaData(product) {
     	else if (data.general && data.general.title) {
     		product.description = data.general.title
     	}
-    	// else if (data.twitter && data.twitter.description) {
-    	// 	product.description = data.twitter.description
-    	// }
+  
     	else if (data.openGraph && data.openGraph.description) {
     		product.description = data.openGraph.description
     	}
@@ -89,7 +87,7 @@ function getMetaData(product) {
 
 
 
-//third
+
 function deleteListItem(productId) {
   console.log('Deleting list item');
   var item = state.list.items.filter(function(item){
@@ -152,17 +150,8 @@ var newItemTemplate =
 
 
 
-
-$(function countItems() {
-	var mainDiv = document.getElementById('item-section');
-	var count = mainDiv.children.length;
-	// console.log(count);
-	console.log($("#item-section div").length);
-	// console.log($('div', '.item').length);
-});
-
       	
-//second
+
 function getAndDisplayListItemUpdates() {
 	
 	console.log('displaying items')
@@ -208,14 +197,14 @@ function handleListItemAdd() {
 				price: $('#item-price').val()
 	} 
 	    
-	    // addListItem(newItem)
+
 	    getMetaData(newItem)
     }
   });
 }
 
 
-//first
+
 function handleListItemDelete() {
 console.log('removing list item');
 	$('.list-items').on('click', '#trash-can', function(e){
@@ -240,7 +229,7 @@ $(function() {
 	handleListItemDelete();
 	handleListItemAdd();
 	getAndDisplayListItemUpdates();
-	// countItems();
+
 });
 
 $(function() {

@@ -7,7 +7,7 @@ var scrape = require('html-metadata');
 
 const listRouter = express.Router();
 
-// exports.app = app;
+
 
 listRouter.use(jsonParser);
 
@@ -76,14 +76,7 @@ listRouter.put('/:id', (req, res) => {
 	
 });
 
-// listRouter.delete('/:id', passport.authenticate('basic', {session: false}), (req, res) => {
-// 	console.log('eh??')
-// 	List.delete({
-// 		_id: req.params.id}, function(data){
-// 			console.log(data);
-// 			res.sendStatus(204);
-// 		});
-// });
+
 
 listRouter.delete('/:id', passport.authenticate('basic', {session: false}), (req, res) => {
 	List.findOneAndRemove({
@@ -102,9 +95,5 @@ listRouter.post('/metadata', passport.authenticate('basic', {session: false}), (
 			console.log(metadata);
 		});
 	});
-
-// listRouter.delete('/:id', (req, res) => {
-// 	List.item.delete(req.params._id);
-// 	console
 
 module.exports = {listRouter};

@@ -44,14 +44,3 @@ function logIn (username, password) {
 	
 }
 
-// function addProduct () {
-// 	$.ajax({ url: '/me', 
-// 		type: 'POST',
-// 		headers: {
-// 			authorization: localStorage.headers
-// 		} 
-// 		data: JSON.stringify({username, password}), 
-// 		contentType: 'application/json', success: function(got) { 
-// 		} 
-// 	});
-// }

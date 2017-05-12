@@ -1,19 +1,11 @@
 const mongoose = require('mongoose');
-// const uuid = require('uuid');
+
 const bcrypt = require('bcryptjs');
 
 
 
 mongoose.Promise = global.Promise;
 
-// const productSchema = mongoose.Schema({
-// 	name: {type: String, required: true},
-// 	description: {type: String},
-// 	url: {type: String},
-// 	price: {type: Number}, 
-	
-// 	// image: {type: `${}`}
-// });
 
 const ListSchema = mongoose.Schema({
 	name: {type: String, required: true},
@@ -70,7 +62,7 @@ UserSchema.statics.hashPassword = function(password) {
 
 const User = mongoose.model('User', UserSchema);
 const List = mongoose.model('List', ListSchema);
-// const ListItems = mongoose.model('ListItems', productSchema);
+
 
 module.exports = {User, List};
 
