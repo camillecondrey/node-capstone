@@ -5,8 +5,6 @@
 
 body {
 	background-image: linear-gradient(to right, #2A008B, #009092);
-
-
 }
 
 nav {
@@ -146,7 +144,7 @@ legend {
 	float: left;
 }
 
-.app-image-1 {
+/*.app-image-1 {
 	margin-top: 100px;
 	width: 1000px;
 	height: 300px;
@@ -165,6 +163,42 @@ legend {
 	height: 300px;
 	margin-left: 200px;
 }
+*/
+
+.demo-1  {
+	margin-left: 120px;
+	margin-right: 120px;
+	margin-top: 120px;
+	margin-bottom: 120px;
+	height: 200px;
+}
+
+.demo-2 {
+	margin-left: 120px;
+	margin-right: 120px;
+	margin-top: 80px;
+	margin-bottom: 120px;
+	height: 200px;
+}
+
+.demo-3 {
+	margin-left: 120px;
+	margin-right: 120px;
+	margin-top: 80px;
+	margin-bottom: 200px;
+	height: 170px;
+}
+
+@media all and (max-width:800px) 
+{
+    .demo-1, .demo-2, .demo-3
+    {
+        display: block; 
+        float: none; 
+        width: 100%;
+    }
+}
+
 
 section {
 	text-align: center;
@@ -176,6 +210,7 @@ section {
 	font-family: 'Poppins', sans-serif;
 	font-size: 24px;
 	padding-top: 40px;
+
 }
 
 .tag-line {
