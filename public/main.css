@@ -199,6 +199,14 @@ legend {
     }
 }
 
+@media all and (max-width:800px)
+{
+	.section 
+	{
+		width: 100%;
+	}
+}
+
 
 section {
 	text-align: center;
