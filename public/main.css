@@ -191,11 +191,7 @@ legend {
 }
 
 
-/*@media all and (max-width: 800px) {
-	body {
-		min-width: 100%;
-	}
-}*/
+
 
 @media all and (max-width:800px) 
 {
@@ -215,11 +211,6 @@ legend {
 	}
 }
 
-/*@media only screen and (min-width: 640px) {
-	.demo-1, .demo-2, .demo-3 {
-		min-width: 100%;
-	}
-}*/
 
 
 .section {
