@@ -143,7 +143,7 @@ label {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
   	.form-box {
-  		margin-left: 13.75em;
+  		margin-left: 14.50em;
   		margin-right: 13.75em;
   		/*margin-right: auto;
   		margin: auto;*/
