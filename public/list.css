@@ -15,7 +15,8 @@ h1 {
 }
 
 .group {
-
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 100px;
 
 }
@@ -221,4 +222,10 @@ label {
 	color: white;
 	font-family: 'Poppins', sans-serif;
 
+}
+
+.list {
+	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
