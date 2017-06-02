@@ -144,6 +144,7 @@ label {
   and (orientation: portrait) {
   	.form-box {
   		margin-left: 23.75em;
+  		margin-right: 23.75em;
   		/*margin-right: auto;
   		margin: auto;*/
   	}
