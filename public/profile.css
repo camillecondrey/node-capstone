@@ -69,6 +69,7 @@ h1 {
   and (orientation: portrait) {
   	.create {
   		max-width: 1.5em;
+  		max-height: 1.5em;
   	}
 
 }
