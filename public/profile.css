@@ -70,6 +70,7 @@ h1 {
   	.create {
   		max-width: 2.5em !important;
   		max-height: 2.5em !important;
+  		padding: none;
   	}
 
 }
