@@ -14,16 +14,7 @@ body {
 	min-width: 1000px;
 }
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
 
-  	body {
-  		min-width: 320px;
-  	}
-}
 
 
 .logout {
@@ -38,18 +29,6 @@ body {
 	color: white;
 	border-radius: 4px;
 	font-family: 'Poppins', sans-serif;
-}
-
-
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-
-  	.logout {
-  		min-width: 120px;
-  	}
 }
 
 
@@ -81,17 +60,6 @@ h1 {
 	text-align: center;
 	background-color: transparent;
 
-}
-
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
-
-  	.create {
-  		max-width: 80px;
-  	}
 }
 
 .pcreate {
