@@ -47,7 +47,7 @@ h1 {
 .create {
 	margin-top: 50px;
 	padding-top: 10px;
-	max-width:80px;
+	min-width:80px;
     height:80px;
     line-height:50px;
 	border: 4px solid white !important;
@@ -68,8 +68,8 @@ h1 {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
   	.create {
-  		max-width: 1.5em;
-  		max-height: 1.5em;
+  		max-width: 2.5em !important;
+  		max-height: 2.5em !important;
   	}
 
 }
