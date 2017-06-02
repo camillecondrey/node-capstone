@@ -134,6 +134,7 @@ label {
 .form-box {
 	margin-left: 380px;
 	margin-top: 40px;
+
 }
 
 @media only screen 
@@ -142,9 +143,9 @@ label {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
   	.form-box {
-  		margin-left: auto;
-  		margin-right: auto;
-  		margin: auto;
+  		margin-left: 23.75em;
+  		/*margin-right: auto;
+  		margin: auto;*/
   	}
 
 }
