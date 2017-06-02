@@ -136,6 +136,19 @@ label {
 	margin-top: 40px;
 }
 
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+  	.form-box {
+  		margin-left: auto;
+  		margin-right: auto;
+  		margin: auto;
+  	}
+
+}
+
 .line-thru {
 	text-decoration: line-through;
 }
