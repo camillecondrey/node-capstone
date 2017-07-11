@@ -83,7 +83,7 @@ describe('list page', function() {
   });
 });
 
-describe('Blog API Resource', function() {
+describe('API Resource', function() {
 
 
   describe('GET endpoint', function() {

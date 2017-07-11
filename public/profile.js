@@ -9,7 +9,6 @@ var listTemplate =
 `<div class="card col span_1_of_3">
   <div class="card-block">
    
-    
     <span id="trash-can" class="glyphicon glyphicon-trash"></span>
    
     <p class="card-title"></p>
