@@ -68,10 +68,12 @@ h1 {
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
   	.create {
-  		max-width: 10px !important;
+  		/*max-width: 10px !important;
   		max-height: 10px !important;
   		padding: none;
-  		border-radius: 50px;
+  		border-radius: 50px;*/
+		border: none;
+		
   	}
 
 }
