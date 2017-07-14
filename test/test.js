@@ -168,3 +168,14 @@ describe('API Resource', function() {
 //     });
 //   });
 // });
+
+
+//  it('should return tracked moods with the right fields', function () {
+//    let resMood;
+//      return chai.request(app)
+//      .get('/')
+//      .then(function(res){
+//          res.should.have.status(200)
+//      });
+//  })
+//  });
