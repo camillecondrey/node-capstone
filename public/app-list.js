@@ -250,7 +250,7 @@ var listTemplate = (
 
 $('.new-item').click(function(){
 	var html = $(listTemplate);
-	event.preventDefault();
+	
 	$('.form-box').removeClass('hidden');
 })
 
@@ -258,7 +258,7 @@ $('.new-item').click(function(){
 
 $(function() {
 	$('.check').click(function(){
-	event.preventDefault();
+	
 	$(e.currentTarget).closest('#item-name').addClass('line-thru');
 })
 });
