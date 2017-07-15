@@ -179,7 +179,7 @@ function getAndDisplayListItemUpdates() {
 	 	return element;
  	});
  	$('.list-items').html(itemElement);	
-	$('form').addClass(hidden); 
+	$('form').addClass("hidden"); 
  })
 }
 
