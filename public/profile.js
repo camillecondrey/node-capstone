@@ -45,7 +45,7 @@ var LISTS_URL = '/lists';
 $('.create').click(function(){
 	var html = $(listAddTemplate);
 	console.log('testingggg');
-	event.preventDefault();
+	
 	html.on('submit', function(event) {
 		event.preventDefault();
 		let list = {
