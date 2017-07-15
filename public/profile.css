@@ -15,6 +15,7 @@ html {
 body {
 	background-image: linear-gradient(to right, #2A008B, #00ced1);
 	min-width: 1000px;
+	overflow-x: hidden;
 }
 
 

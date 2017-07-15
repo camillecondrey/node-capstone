@@ -36,6 +36,7 @@ var listAddTemplate =
 
 
 
+
 var LISTS_URL = '/lists';
 
   
@@ -52,9 +53,12 @@ $('.create').click(function(){
 			description: $('#list-description').val()
 		}
 		addList(list);
+    $('.create-list-section').empty();
 	})
 	$('.create-list-section').append(html);
 })
+
+
 
 
 $('.logout').click(function() {

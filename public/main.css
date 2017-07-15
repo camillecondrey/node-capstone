@@ -8,6 +8,7 @@
 body {
 	background-image: linear-gradient(to right, #2A008B, #009092);
 	min-width: 1000px;
+	overflow-x: hidden;
 }
 
 nav {
@@ -24,10 +25,12 @@ nav {
 
 .login {
 	width: 286px;
+	-moz-box-sizing: border-box;
+	height: 100%;
 	border: none;
-	padding: 15px;
+	padding: 5px;
 	border-radius: 3px;
-	height: 34px;
+	/*height: 34px;*/
 	font-size: 15px;
 	margin-top: 20px;
 	margin-right: 10px;
@@ -67,9 +70,11 @@ nav {
 .sign-up-input {
 	width: 286px;
 	border: 2px solid #D2BFFF;
-	padding: 15px;
+	padding: 5px;
 	border-radius: 3px;
-	height: 30px;
+	height: 25px;
+	height: 100%;
+	-moz-box-sizing: border-box;
 	font-size: 18px;
 	display: block;
 	margin-top: 23px;
@@ -106,6 +111,7 @@ legend {
 	border-radius: 4px;
 	font-family: 'Poppins', sans-serif;
 	margin-top: 30px;
+	margin-left: 7px;
 }
 
 #log-in-button {
@@ -118,6 +124,7 @@ legend {
 	border-radius: 4px;
 	font-family: 'Poppins', sans-serif;
 	margin-top: 30px;
+	margin-right: 20px;
 }
 
 .app-name {
@@ -125,7 +132,7 @@ legend {
 	float: left;
 	margin-top: 20px;
 	margin-left: 30px;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Poppinutton', sans-serif;
 	font-size: 30px;
 }
 

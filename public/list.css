@@ -6,6 +6,7 @@
 
 body {
 	background-image: linear-gradient(to right, #2A008B, #009092);
+	overflow-x: hidden;
 }
 
 
