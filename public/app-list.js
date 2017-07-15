@@ -179,6 +179,7 @@ function getAndDisplayListItemUpdates() {
 	 	return element;
  	});
  	$('.list-items').html(itemElement);	
+	$('form').addClass(hidden); 
  })
 }
 
@@ -252,6 +253,8 @@ $('.new-item').click(function(){
 	event.preventDefault();
 	$('.form-box').removeClass('hidden');
 })
+
+
 
 $(function() {
 	$('.check').click(function(){
