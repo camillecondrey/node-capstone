@@ -139,9 +139,9 @@ var newItemTemplate =
 
 
        	<input type=checkbox  id=ckb1 value=1 onclick=my_fun(1);> check off list<span id='my_span1'><h3 id="item-name"></h3></span>
-       	<p id="item-description my_span1"></p>
+       	<p id="item-description"></p>
        	<a href="" target="_blank" id="item-url"></a>
-       	<p class="item-price" id="item-price my_span1"></p> 
+       	<p class="item-price" id="item-price"></p> 
        	<img id="image" src="">
        	<p id="availability"></p>
       
