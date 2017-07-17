@@ -138,7 +138,7 @@ var newItemTemplate =
 <span id="trash-can" class="glyphicon glyphicon-trash"></span>
 
 
-       	<input type=checkbox  id=ckb1 value=1 onclick=my_fun(1);><span class='my_span1'><h3 id="item-name"></h3></span>
+       	<input type=checkbox  id=ckb1 value=1 onclick=my_fun(1);><span id='my_span1'><h3 id="item-name"></h3></span>
        	<p id="item-description"></p>
        	<a href="" target="_blank" id="item-url"></a>
        	<p class="item-price" id="item-price"></p> 
@@ -284,7 +284,7 @@ var msg = chkbox + "  " + my_span;
 
 if(document.getElementById(chkbox).checked){ 
 
-document.getElementByClass(my_span).style.textDecoration='line-through';
+document.getElementById(my_span).style.textDecoration='line-through';
 
 }else{
 
