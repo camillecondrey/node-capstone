@@ -30,6 +30,7 @@ var listAddTemplate =
 	    <label>List Description:</label>
 	    <input id="list-description" class="card-text input" placeholder="optional"></input>
 	    <button type="submit" class="add-items">Create List</button>
+      <button class="cancel">Cancel</button>
 	  </div>
 </form>`
 
@@ -44,7 +45,7 @@ var LISTS_URL = '/lists';
 
 $('.create').click(function(){
 	var html = $(listAddTemplate);
-	console.log('testingggg');
+
 	
 	html.on('submit', function(event) {
 		event.preventDefault();
@@ -69,7 +70,7 @@ $('.logout').click(function() {
 
 
  function getAndDisplayLists() {
- 	console.log('displaying list');
+
  	$.ajax({
     method: 'GET',
     url: LISTS_URL,
@@ -103,7 +104,7 @@ $('.logout').click(function() {
 
 
 function addList(list) {
-  console.log('Adding list');
+
   $.ajax({
     method: 'POST',
     url: LISTS_URL,
@@ -121,7 +122,7 @@ function addList(list) {
 }
 
 function deleteList(listId) {
-  console.log('Deleting list');
+
   $.ajax({
     url: LISTS_URL + '/' + listId,
     method: 'DELETE',
@@ -137,7 +138,7 @@ function deleteList(listId) {
 
 
 function updateList(list) {
-  console.log('Updating list');
+
   $.ajax({
     url: LISTS_URL + '/' + list.id,
     method: 'PUT',
@@ -162,7 +163,7 @@ function handleListAdd() {
 
 
 function handleListDelete() {
-	console.log('removing list');
+
 	$('.list-section').on('click', '#trash-can', function(e){
 		e.preventDefault();
 		deleteList(

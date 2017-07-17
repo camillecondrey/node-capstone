@@ -107,7 +107,7 @@ function deleteListItem(productId) {
 		}
 
   });
-  console.log('test');
+
 }
 
 function updateListItem(product) {
@@ -182,6 +182,8 @@ function getAndDisplayListItemUpdates() {
 	$('form').addClass("hidden"); 
  })
 }
+
+
 
 function handleListItemAdd() {
 
@@ -266,3 +268,8 @@ $(function() {
 $('.logout').click(function() {
   window.location = 'index.html';
 });
+
+$('.cancel').click(function() {
+	event.preventDefault();
+	$('form').addClass("hidden");
+})

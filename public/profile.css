@@ -213,9 +213,23 @@ label {
 #add-list-form {
 	display: block;
 	margin: auto;
+	height: 300px;
 }
 
 .add-items {
+	height: 35px;
+	width: 320px;
+	background-color: #2A008B;
+	border: none;
+	font-size: 16px;
+	color: white;
+	border-radius: 4px;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 15px;
+	text-align: center;
+}
+
+.cancel {
 	height: 35px;
 	width: 320px;
 	background-color: #2A008B;

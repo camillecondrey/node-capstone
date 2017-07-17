@@ -1,37 +1,3 @@
-// var MOCK_LIST_UPDATES = {
-// 	"listUpdates": [
-// 		{
-// 			"id": "1111111",
-// 			"name": "pants",
-// 			"description": "need these for beach trip",
-// 			"price": "$20.00",
-// 			"dateAdded": "4.12.17"
-// 		},
-// 		{
-// 			"id": "2222222",
-// 			"name": "silverware",
-// 			"description": "",
-// 			"price": "$30.00",
-// 			"dateAdded": "4.12.17"
-// 		},
-// 		{
-// 			"id": "3333333",
-// 			"name": "dress",
-// 			"description": "for sister's wedding",
-// 			"price": "$100.00",
-// 			"dateAdded": "4.12.17"
-// 		},
-// 		{
-// 			"id": "4444444",
-// 			"name": "open toe shoes",
-// 			"description": "need for spring",
-// 			"price": "$40.00",
-// 			"dateAdded": "4.12.17"
-// 		},
-
-// 	]
-// }
-
 var MOCK_LIST_UPDATES = {
 	"listUpdates": [
 	{
@@ -56,7 +22,7 @@ var MOCK_LIST_UPDATES = {
 
 	{
 		"id": "4444444",
-		"title": "Concert Tickets to purchase"
+		"title": "Concert Tickets to purchase",
 		"description": "upcoming Red Rocks season"
 	}]
 	}

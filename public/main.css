@@ -59,7 +59,7 @@ nav {
 .sign-up {
 	margin: auto;
 	width: 380px;
-	height: 400px;
+	height: 440px;
 	padding: 40px;
 	margin-top: 70px;
 	background-color: #fafafa;
@@ -271,4 +271,8 @@ legend {
 	color: white;
 	font-family: 'Poppins', sans-serif;
 
+}
+
+.legend {
+	font-size: 15px;
 }
