@@ -138,7 +138,7 @@ var newItemTemplate =
 <span id="trash-can" class="glyphicon glyphicon-trash"></span>
 
 
-       	<h3 id="item-name"></h3>
+       	<input type=checkbox  id=ckb1 value=1 onclick=my_fun(1);><span class='my_span1'><h3 id="item-name"></h3></span>
        	<p id="item-description"></p>
        	<a href="" target="_blank" id="item-url"></a>
        	<p class="item-price" id="item-price"></p> 
@@ -273,3 +273,23 @@ $('.cancel').click(function() {
 	event.preventDefault();
 	$('form').addClass("hidden");
 })
+
+function my_fun(j){
+
+var chkbox ="ckb" + j;
+
+var my_span ="my_span" + j;
+
+var msg = chkbox + "  " + my_span;
+
+if(document.getElementById(chkbox).checked){ 
+
+document.getElementByClass(my_span).style.textDecoration='line-through';
+
+}else{
+
+document.getElementById(my_span).style.textDecoration='none';
+
+}
+
+}
